@@ -1,23 +1,16 @@
 import numpy as np
 
-def U_0(alpha, U):
+def I_m(alpha, phi):
     alpha = float(alpha)
-    U = float(U)
+    phi = float(phi)
 
-    result = alpha * U
-
-    return result
-
-def u(t, f, U_0):
-    f = float(f)
-    U_0 = float(U_0)
-    p = np.pi
-
-    result = U_0 * np.sin(2 * p * f * t) + 0.1 * U_0 * np.sin(6 * p * f * t)
+    result = alpha * phi
 
     return result
 
-def T(f):
-    result = 1 / float(f)
+def i(t, I_m):
+    e = np.e
+
+    result = I_m * np.power(e, -t/170*e-6)
 
     return result

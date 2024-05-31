@@ -1,14 +1,16 @@
 import numpy as np
 from scipy import integrate
 
-def alpha(f):
-    f = float(f)
-    p = np.pi
+def alpha():
+    e = np.e
 
-    integrand = lambda t: np.square(np.sin(2*p*f*t) + 0.1 * np.sin(6*p*f*t))
+    C = 150 * np.power(10.0, -12)
+    T = 1.7 * np.power(10.0, -6)
 
-    integral = integrate.quad(integrand, 0, 1/f)
+    integrand = lambda t: np.power(e, -t/170*e-6)
 
-    result = np.power(f*integral[0], -0.5)
+    integral = integrate.quad(integrand, 0, T)
+
+    result = C/integral[0]
 
     return result
